@@ -1,2 +1,2 @@
-# INSTAGRAMPAY
-Ganhe dinheiro com o instagram 
+# TIKTOK PAY
+Ganhe dinheiro com o tiktok
