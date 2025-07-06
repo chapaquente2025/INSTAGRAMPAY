@@ -3,47 +3,76 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>InstaPay - Ganhe grana com sua opinião!</title>
+  <title>TikTok Pay - Ganhe grana com sua opinião!</title>
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom right, #feda75, #fa7e1e);
-      color: #262626;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to bottom right, #ff005a, #00f2ea);
+      color: #fff;
       text-align: center;
-      padding: 20px;
+      padding: 30px;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      font-weight: 600;
     }
     .login, .conteudo, .saque, .taxa {
       display: none;
-      max-width: 400px;
+      max-width: 380px;
       margin: 0 auto;
-      background: #fff;
+      background: rgba(0, 0, 0, 0.7);
       padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     }
     input, select, button {
-      margin-top: 10px;
+      margin-top: 15px;
       width: 100%;
-      padding: 10px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #fff;
       font-size: 16px;
+      background-color: #222;
+      color: #fff;
+    }
+    input, select {
+      font-size: 1rem;
     }
     button {
-      background-color: #fa7e1e;
-      color: #fff;
+      background-color: #00f2ea;
+      color: #222;
       border: none;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
-    h1, h2 {
-      margin-bottom: 10px;
+    button:hover {
+      background-color: #ff005a;
+      color: #fff;
     }
     .visible { display: block; }
+    .saque p {
+      font-size: 1rem;
+      margin-top: 15px;
+    }
+    .taxa p {
+      font-size: 1rem;
+      margin-top: 10px;
+    }
+    a {
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
-  <h1>InstaPay</h1>
+  <h1>TikTok Pay</h1>
   <div class="login visible">
     <h2>Login</h2>
     <input type="email" id="email" placeholder="Seu email" />
@@ -52,7 +81,7 @@
   </div>
 
   <div class="conteudo">
-    <h2>Que tipo de conteúdo VOCÊ curte no Instagram?</h2>
+    <h2>Que tipo de conteúdo VOCÊ curte no TikTok?</h2>
     <select id="resposta">
       <option>Comédia</option>
       <option>Ensinamento</option>
@@ -76,7 +105,7 @@
   <div class="taxa">
     <h2>Taxa Antifraude</h2>
     <p>Para liberar seu saque com segurança, pague uma pequena taxa de R$14,90.</p>
-    <p>Ao pagar, você também recebe um curso completo de como viralizar no Instagram!</p>
+    <p>Ao pagar, você também recebe um curso completo de como viralizar no TikTok!</p>
     <a href="https://pay.hotmart.com/A100211821W" target="_blank">
       <button>Pagar e Receber Curso</button>
     </a>
