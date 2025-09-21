@@ -1,2 +1,2 @@
-# TIKTOK PAY
-Ganhe dinheiro com o tiktok
+SISTEMA
+SISTEMA DE PAGAMENTO 
