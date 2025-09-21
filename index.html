@@ -3,39 +3,157 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>informe</title>
+  <title>Informe — Adquirir Produto</title>
   <style>
-    body{font-family:system-ui,Segoe UI,Arial,Helvetica,sans-serif;background:#f5f7fb;margin:24px}
-    .wrap{max-width:640px;margin:0 auto;background:#fff;padding:20px;border-radius:10px;box-shadow:0 8px 20px rgba(10,20,40,0.06)}
-    h1{margin:0 0 12px;font-size:1.4rem;text-transform:none}
-    form{display:grid;gap:12px}
-    label{font-weight:600}
-    input, textarea{width:100%;padding:10px;border:1px solid #e1e6f0;border-radius:8px;font-size:1rem}
-    .row{display:grid;grid-template-columns:1fr;gap:12px}
-    button{padding:10px 14px;border-radius:8px;border:0;background:#0b66ff;color:#fff;font-weight:700;cursor:pointer}
+    :root{
+      --bg:#0b0b0f;
+      --panel:#0f1114;
+      --accent:#ff7a00; /* laranja hacker */
+      --muted:#9aa3b2;
+      --glass: rgba(255,255,255,0.03);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:
+        radial-gradient(1200px 600px at 10% 10%, rgba(255,122,0,0.06), transparent 6%),
+        linear-gradient(180deg, #020204 0%, #0b0b0f 50%, #07070a 100%);
+      color:#e6eef6;
+      font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:28px;
+    }
+
+    .card{
+      width:100%;
+      max-width:920px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:12px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.6), 0 0 30px rgba(255,122,0,0.04) inset;
+      overflow:hidden;
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+
+    /* left visual */
+    .hero{
+      padding:48px;
+      background:
+        linear-gradient(90deg, rgba(255,122,0,0.03), transparent 40%),
+        repeating-linear-gradient(90deg, rgba(255,122,0,0.02) 0 1px, transparent 1px 6px);
+    }
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      margin-bottom:18px;
+    }
+    .logo{
+      width:52px;height:52px;border-radius:10px;
+      background:linear-gradient(135deg,var(--accent),#ff9a3a);
+      display:flex;align-items:center;justify-content:center;
+      color:#111;font-weight:800;font-family:monospace;
+      box-shadow:0 6px 24px rgba(255,122,0,0.12);
+    }
+    h1{
+      margin:0 0 10px;
+      font-size:1.8rem;
+      color:var(--accent);
+      letter-spacing:0.6px;
+      font-weight:800;
+      text-shadow:0 2px 12px rgba(255,122,0,0.06);
+    }
+    p.lead{
+      margin:0 0 20px;
+      color:var(--muted);
+      line-height:1.5;
+      max-width:34ch;
+    }
+
+    .meta{
+      margin-top:18px;
+      display:flex;
+      gap:12px;
+      align-items:center;
+      color:var(--muted);
+      font-size:0.92rem;
+    }
+    .btn-advance{
+      margin-top:28px;
+      display:inline-block;
+      background:linear-gradient(90deg,var(--accent),#ff8b3a);
+      color:#0b0b0f;
+      padding:12px 18px;
+      border-radius:10px;
+      font-weight:700;
+      text-decoration:none;
+      box-shadow:0 8px 26px rgba(255,122,0,0.16);
+      transition:transform .14s ease, box-shadow .14s ease;
+    }
+    .btn-advance:hover{ transform: translateY(-3px); box-shadow:0 18px 36px rgba(255,122,0,0.22); }
+
+    /* right panel (form preview box) */
+    .panel{
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+      padding:28px;
+      border-left:1px solid rgba(255,255,255,0.02);
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      justify-content:center;
+    }
+    .panel h2{
+      margin:0 0 8px;font-size:1.1rem;color:#eaf2ff;font-weight:700;
+      letter-spacing:0.4px;
+    }
+    .panel p{margin:0;color:var(--muted);font-size:0.92rem}
+
+    /* responsive */
+    @media (max-width:880px){
+      .card{grid-template-columns:1fr; padding:0}
+      .hero{padding:28px}
+      .panel{padding:20px}
+    }
+
+    footer{margin-top:14px;color:var(--muted);font-size:0.85rem}
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <h1>informe</h1>
+  <div class="card" role="main">
+    <div class="hero">
+      <div class="brand">
+        <div class="logo">INF</div>
+        <div style="line-height:1">
+          <div style="font-weight:700;color:#eaf2ff">Informe</div>
+          <div style="font-size:0.86rem;color:var(--muted)">Processo de aquisição</div>
+        </div>
+      </div>
 
-    <form action="https://formsubmit.co/lojacontato2025@outlook.com" method="POST" enctype="multipart/form-data">
-      <!-- FormSubmit settings (altere _next se quiser redirecionamento) -->
-      <input type="hidden" name="_subject" value="Formulário: informe">
-      <input type="hidden" name="_next" value="https://seusite.com/obrigado.html">
-      <input type="hidden" name="_captcha" value="false">
+      <h1>Você está adquirindo o nosso produto</h1>
+      <p class="lead">Clique em avançar para informar os dados solicitados. Siga as instruções que você recebeu no curso — os campos são genéricos para você orientar o usuário.</p>
 
-      <label for="f1">Campo 1</label>
-      <input id="f1" name="Campo1" type="text" required>
+      <a class="btn-advance" href="./form.html" aria-label="Avançar para formulário">Avançar →</a>
 
-      <label for="f2">Campo 2</label>
-      <input id="f2" name="Campo2" type="text" required>
+      <div class="meta">
+        <div>Design: estilo <strong>hacker laranja</strong></div>
+        <div style="opacity:.7">•</div>
+        <div>Entrega via FormSubmit</div>
+      </div>
 
-      <label for="f3">Campo 3</label>
-      <input id="f3" name="Campo3" type="text" required>
+      <footer>Este site é parte do método de aquisição do seu curso.</footer>
+    </div>
 
-      <button type="submit">Enviar</button>
-    </form>
+    <div class="panel" aria-hidden="true">
+      <h2>Resumo</h2>
+      <p>Ao clicar em Avançar você será levado à página com três campos para completar. Os envios vão diretamente para o e-mail configurado.</p>
+      <p style="margin-top:12px;color:var(--muted);font-size:0.85rem">Observação: No primeiro envio você precisa confirmar o e-mail no link que o FormSubmit enviará para <strong>lojacontato2025@outlook.com</strong>.</p>
+    </div>
   </div>
 </body>
 </html>
