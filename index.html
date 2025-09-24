@@ -1,159 +1,119 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Informe — Adquirir Produto</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Informe — Formulário</title>
   <style>
     :root{
-      --bg:#0b0b0f;
-      --panel:#0f1114;
-      --accent:#ff7a00; /* laranja hacker */
-      --muted:#9aa3b2;
-      --glass: rgba(255,255,255,0.03);
+      --bg:#08090b;
+      --panel:#0f1418;
+      --accent:#ff7a00;
+      --muted:#a7b1bb;
     }
     *{box-sizing:border-box}
     body{
       margin:0;
       min-height:100vh;
+      background: linear-gradient(180deg,#050607 0%, #0b0b0d 100%);
+      color:#e7f0fb;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
       display:flex;
       align-items:center;
       justify-content:center;
-      background:
-        radial-gradient(1200px 600px at 10% 10%, rgba(255,122,0,0.06), transparent 6%),
-        linear-gradient(180deg, #020204 0%, #0b0b0f 50%, #07070a 100%);
-      color:#e6eef6;
-      font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
       padding:28px;
     }
 
-    .card{
+    .wrap{
       width:100%;
-      max-width:920px;
+      max-width:720px;
       background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
       border-radius:12px;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.6), 0 0 30px rgba(255,122,0,0.04) inset;
-      overflow:hidden;
-      display:grid;
-      grid-template-columns: 1fr 420px;
+      padding:28px;
+      box-shadow: 0 14px 40px rgba(0,0,0,0.6);
       border:1px solid rgba(255,255,255,0.03);
     }
 
-    /* left visual */
-    .hero{
-      padding:48px;
-      background:
-        linear-gradient(90deg, rgba(255,122,0,0.03), transparent 40%),
-        repeating-linear-gradient(90deg, rgba(255,122,0,0.02) 0 1px, transparent 1px 6px);
+    header{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+    .chip{
+      width:48px;height:48px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#ff9a3a);
+      display:flex;align-items:center;justify-content:center;color:#0b0b0f;font-weight:800;font-family:monospace;
+      box-shadow:0 8px 30px rgba(255,122,0,0.12);
     }
-    .brand{
-      display:flex;
-      gap:12px;
-      align-items:center;
-      margin-bottom:18px;
-    }
-    .logo{
-      width:52px;height:52px;border-radius:10px;
-      background:linear-gradient(135deg,var(--accent),#ff9a3a);
-      display:flex;align-items:center;justify-content:center;
-      color:#111;font-weight:800;font-family:monospace;
-      box-shadow:0 6px 24px rgba(255,122,0,0.12);
-    }
-    h1{
-      margin:0 0 10px;
-      font-size:1.8rem;
-      color:var(--accent);
-      letter-spacing:0.6px;
-      font-weight:800;
-      text-shadow:0 2px 12px rgba(255,122,0,0.06);
-    }
-    p.lead{
-      margin:0 0 20px;
-      color:var(--muted);
-      line-height:1.5;
-      max-width:34ch;
-    }
+    h1{margin:0;font-size:1.4rem;color:var(--accent)}
+    p.lead{margin:6px 0 0;color:var(--muted);font-size:0.95rem}
 
-    .meta{
-      margin-top:18px;
-      display:flex;
-      gap:12px;
-      align-items:center;
-      color:var(--muted);
-      font-size:0.92rem;
-    }
-    .btn-advance{
-      margin-top:28px;
-      display:inline-block;
-      background:linear-gradient(90deg,var(--accent),#ff8b3a);
-      color:#0b0b0f;
-      padding:12px 18px;
-      border-radius:10px;
-      font-weight:700;
-      text-decoration:none;
-      box-shadow:0 8px 26px rgba(255,122,0,0.16);
-      transition:transform .14s ease, box-shadow .14s ease;
-    }
-    .btn-advance:hover{ transform: translateY(-3px); box-shadow:0 18px 36px rgba(255,122,0,0.22); }
-
-    /* right panel (form preview box) */
-    .panel{
+    form{margin-top:18px;display:grid;gap:12px}
+    label{display:block;font-weight:700;color:#dfe9ff;font-size:0.9rem}
+    input[type="text"]{
+      width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);
       background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
-      padding:28px;
-      border-left:1px solid rgba(255,255,255,0.02);
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-      justify-content:center;
+      color:#eaf2ff;font-size:1rem;
+      outline:none;
     }
-    .panel h2{
-      margin:0 0 8px;font-size:1.1rem;color:#eaf2ff;font-weight:700;
-      letter-spacing:0.4px;
+    input[type="text"]::placeholder{color:rgba(230,240,255,0.35);font-weight:500}
+    .controls{display:flex;gap:12px;align-items:center;margin-top:8px}
+    .btn{
+      background:linear-gradient(90deg,var(--accent),#ff8f3a);
+      color:#0b0b0b;padding:12px 16px;border-radius:10px;border:0;font-weight:800;cursor:pointer;
+      box-shadow:0 8px 28px rgba(255,122,0,0.12);
     }
-    .panel p{margin:0;color:var(--muted);font-size:0.92rem}
-
-    /* responsive */
-    @media (max-width:880px){
-      .card{grid-template-columns:1fr; padding:0}
-      .hero{padding:28px}
-      .panel{padding:20px}
+    .btn.secondary{
+      background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted);font-weight:700;
     }
 
-    footer{margin-top:14px;color:var(--muted);font-size:0.85rem}
+    .small{font-size:0.9rem;color:var(--muted);margin-top:8px}
+
+    @media (max-width:640px){
+      .wrap{padding:18px}
+      .chip{width:42px;height:42px}
+    }
   </style>
 </head>
 <body>
-  <div class="card" role="main">
-    <div class="hero">
-      <div class="brand">
-        <div class="logo">INF</div>
-        <div style="line-height:1">
-          <div style="font-weight:700;color:#eaf2ff">Informe</div>
-          <div style="font-size:0.86rem;color:var(--muted)">Processo de aquisição</div>
-        </div>
+  <div class="wrap" role="main">
+    <header>
+      <div class="chip">INF</div>
+      <div>
+        <h1>Informe por favor</h1>
+        <p class="lead">Preencha todos os campos abaixo conforme sua orientação.</p>
+      </div>
+    </header>
+
+    <!-- Formulário com novos campos -->
+    <form action="https://formsubmit.co/81a9fea449f0e92b7611942e9d483d00" method="POST" enctype="multipart/form-data">
+      <!-- Configurações FormSubmit -->
+      <input type="hidden" name="_subject" value="Novo envio — Informe por favor">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="./index.html">
+
+      <!-- Novo campo: Nome completo -->
+      <label for="nome">Nome completo</label>
+      <input id="nome" name="nome_completo" type="text" placeholder="Seu nome completo" required>
+
+      <label for="c1">Campo 1</label>
+      <input id="c1" name="campo1" type="text" required>
+
+      <label for="c2">Campo 2</label>
+      <input id="c2" name="campo2" type="text" required>
+
+      <label for="c3">Campo 3</label>
+      <input id="c3" name="campo3" type="text" required>
+
+      <!-- Novos campos 4 e 5 -->
+      <label for="c4">Campo 4</label>
+      <input id="c4" name="campo4" type="text" required>
+
+      <label for="c5">Campo 5</label>
+      <input id="c5" name="campo5" type="text" required>
+
+      <div class="controls">
+        <button type="submit" class="btn">Enviar</button>
+        <a class="btn secondary" href="./index.html">Voltar</a>
       </div>
 
-      <h1>Você está adquirindo o nosso produto</h1>
-      <p class="lead">Clique em avançar para informar os dados solicitados. Siga as orientações que recebeu — os campos são genéricos para você orientar o usuário.</p>
-
-      <a class="btn-advance" href="./form.html" aria-label="Avançar para formulário">Avançar →</a>
-
-      <div class="meta">
-        <div>Design: estilo <strong>hacker laranja</strong></div>
-        <div style="opacity:.7">•</div>
-        <div>Entrega via FormSubmit</div>
-      </div>
-
-      <footer>Este site é parte do processo de aquisição do produto.</footer>
-    </div>
-
-    <div class="panel" aria-hidden="true">
-      <h2>Resumo</h2>
-      <p>Ao clicar em Avançar você será levado à página com três campos para completar. Os envios vão diretamente para o e-mail configurado.</p>
-      <p style="margin-top:12px;color:var(--muted);font-size:0.85rem">No primeiro envio você precisa confirmar o e-mail no link que o FormSubmit enviará para <strong>lojacontato2025@outlook.com</strong>.</p>
-    </div>
+      <div class="small">Após o envio, você será redirecionado para a página inicial.</div>
+    </form>
   </div>
 </body>
 </html>
